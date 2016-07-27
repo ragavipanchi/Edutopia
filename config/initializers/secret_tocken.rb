@@ -1,0 +1,1 @@
+MeHub::Application.config.secret_key_base = '8151cda3eb35a45f4a4f7cceaa58af451f55da6a223944c5276b5385905ee8503d05fa3fcc928f4374d6a5d564346b5565b1c741a908bdeb41ca3d1fae4befb'

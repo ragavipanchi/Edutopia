@@ -1,0 +1,10 @@
+<%= link_to user_path(user) do %>
+  <% unless user.avatar.url%>
+  	<i class="fa fa-user front-page-icon-font"></i>
+  <% else %>
+  	<%= image_tag user.avatar.url , class: 'avatar' %>
+  <% end %>
+  
+  
+  
+<% end %>
