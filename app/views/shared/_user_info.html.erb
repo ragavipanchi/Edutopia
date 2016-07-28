@@ -1,12 +1,15 @@
 <div id="user-info" class="well">
-  <div class="text-center">
-    <%= render 'shared/avatar', user: @user %><br>
-    <h5><%= link_to @user.name, @user %></h5>
-  </div>
-  <h5>
-    <%= fa_icon 'shield' %>
-    <%= pluralize(@user.posts_count, 'post') %>
-  </h5>
+  
+    <div class="text-center">
+      <%= render 'shared/avatar', user: @user %><br>
+      <h5><%= link_to @user.name, @user %></h5>
+    </div>
+  <% if college? %>
+    <h5>
+      <%= fa_icon 'shield' %>
+      <%= pluralize(@user.posts_count, 'post') %>
+    </h5>
+  <% end %>
   <% if @user.dob.present? %>
     <h5>
       <%= fa_icon @user.sex %>

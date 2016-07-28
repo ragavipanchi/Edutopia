@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :courses
       resources :student_courses
   end
-  authenticated :user, lambda {|u| u.has_role? :college} do
+  authenticated :user, lambda {|u| (u.has_role? :college) || (u.has_role? :student)} do
     root to: 'home#index', as: 'home'
   end
 

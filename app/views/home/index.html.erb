@@ -3,7 +3,7 @@
     <%= render 'shared/user_info' %>
   </div>
   <div id="newsfeed" class="col-lg-6">
-    <%= render 'posts/form' %>
+    <%= render 'posts/form' if college?%>
     <br>
     <div id="activities">
       <% if @activities.empty? %>

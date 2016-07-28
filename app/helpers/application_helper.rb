@@ -6,4 +6,13 @@ module ApplicationHelper
   def belongs_to_user?(resource)
     resource.user == current_user
   end
+  def admin?
+  	current_user.has_role? :admin
+  end
+  def college?
+  	current_user.has_role? :college
+  end
+  def student?
+  	current_user.has_role? :student
+  end
 end
