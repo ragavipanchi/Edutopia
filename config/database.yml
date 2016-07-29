@@ -17,19 +17,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: vramisetti
+  username: postgres
+  password: postvamsigres
   host: localhost
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-
-development:
-  <<: *default
-  database: me_hub_development
-
-test:
-  <<: *default
-  database: me_hub_test
 
 production:
   <<: *default
