@@ -340,6 +340,7 @@ DEPENDENCIES
   populator
   pry-rails
   public_activity
+  puma
   rails (= 5.0.0)
   rails_12factor
   rename
