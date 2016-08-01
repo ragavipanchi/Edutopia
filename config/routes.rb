@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   unauthenticated :user do
     root 'home#front'
   end
-
+  authenticated :user do
+    root to: 'home#front', as: 'front'
+  end
   match :follow, to: 'follows#create', as: :follow, via: :post
   match :unfollow, to: 'follows#destroy', as: :unfollow, via: :post
   match :like, to: 'likes#create', as: :like, via: :post
