@@ -20,8 +20,11 @@ class HomeController < ApplicationController
     @friends = @user.all_following
     @users =  User.where.not(id: @friends.unshift(@user)).paginate(page: params[:page])
   end
-
-  private
+  def search_friends
+    @friends = @user.all_following
+    @users = User.where("name LIKE ?", "%#{params[:q]}%").where.not(id: @friends.unshift(@user)).paginate(page: params[:page])
+  end
+private
   def set_user
     @user = current_user
   end

@@ -29,19 +29,24 @@ $(document).ready(function(){
     format:'Y/m/d',
     maxDate:'0'
   });
+  $(".search-college").keyup(function(){
+    $.ajax({url: "/search_friends?q="+$(this).val(), success: function(result){
+          $("#users").html(result);
+        }});
+  })
 });
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(
         {
-        html : true, 
+        html : true,
         content: function() {
           return $('[data-toggle="popover"]').html();
         },
         title: function() {
           return $('[data-toggle="popover"]').html();
         }
-    }); 
+    });
     $('.table-data').DataTable();
     $(".manage-students").click(function(){
       $(".manage-tabs").hide();
@@ -59,9 +64,9 @@ $(document).ready(function(){
       $(".role-form").hide()
       $("."+$(this).val()+"-form").fadeIn(500);
     });
-    
-    
-  
+
+
+
     $('.spinner-btn').click(function() {
       var $t = $(this);
       var $tc = $(".text-val",this)
@@ -76,8 +81,8 @@ $(document).ready(function(){
           $t.removeClass("btn btn-default");
           $tc.html("Applied")
         });
-       
+
     });
-    
-    
+
+
 });

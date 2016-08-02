@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   match :like, to: 'likes#create', as: :like, via: :post
   match :unlike, to: 'likes#destroy', as: :unlike, via: :post
   match :find_friends, to: 'home#find_friends', as: :find_friends, via: :get
+  get :search_friends, to: 'home#search_friends'
   match :about, to: 'home#about', as: :about, via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
