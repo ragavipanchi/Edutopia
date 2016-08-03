@@ -8,13 +8,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
-
+  before_filter :set_theme_color
   protected
   def configure_permitted_parameters
     #binding.pry
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :password_confirmation])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :remember_me])
   end
-
+  def set_theme_color
+    #$theme_color = "#154360"
+    $theme_color = "#123456"
+  end
   include PublicActivity::StoreController
 end

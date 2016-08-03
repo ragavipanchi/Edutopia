@@ -20,15 +20,26 @@
 @import "jquery.atwho";
 @import "*";
 
+@mixin theme-color{
 
+  background-color: $navbar-color !important;
+}
+.theme-color{
+  @include theme-color;
+}
 
+.nav-admin{
+  margin:1%;
+  background-color:#fff;
+  color:#666 !important;
+}
 .notice{
     @extend .alert;
     @extend .alert-info;
     
 }
 .default-color{
-    background-color:#154360 !important;
+    @include theme-color;
     color:#fff !important;
 }
 .front-page-icon-font{
