@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :course_attachments
   resources :posts
   resources :comments, only: [:create, :destroy]
   devise_for :users
