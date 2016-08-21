@@ -23,6 +23,7 @@
 @mixin theme-color{
 
   background-color: $navbar-color !important;
+  border: $navbar-color solid !important;
 }
 .theme-color{
   @include theme-color;
