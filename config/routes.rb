@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get :mentionable
     end
   end
-  resources :events, except: [:edit, :update]
+  
 
   authenticated :user , lambda {|u| u.has_role? :admin} do
       root "admin#index", :as => "admin_root"
@@ -26,9 +26,12 @@ Rails.application.routes.draw do
       resources :student_courses
   end
   authenticated :user, lambda {|u| (u.has_role? :college) || (u.has_role? :student)} do
-    root to: 'home#index', as: 'home'
+    root to: 'home#home_ui', as: 'test_ui_path'
+    get 'home/index', as: 'home'
   end
-
+  authenticated :user , lambda {|u| u.has_role? :college} do
+    resources :events, except: [:edit, :update]
+  end
   unauthenticated :user do
     root 'home#front'
   end

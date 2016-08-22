@@ -1,0 +1,60 @@
+<div class= "row">
+    <div><h4>POSTS & FEEDS</h4></div>
+</div>
+<div class= "row">
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-calendar-o", name: "News Feeds", path: home_path} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-arrow-circle-right", name: "Collages I Follow", path: friends_user_path(current_user)}%>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-search", name: "Search Colleges", path: find_friends_path} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-university", name: "My college Feeds ", path: "#"}%>
+    
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-group", name: "Discussions", path: "#"} if student?%>  
+</div>
+
+<br />
+<div class= "row">
+    <div><h4>EVENTS</h4></div>
+</div>
+
+<div class="row">
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-user-secret", name: "Off Campus Drives", path: new_event_path} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-sitemap", name: "Workshops", path: new_event_path} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-share-alt", name: "Fests", path: new_event_path} %>    
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-odnoklassniki", name: "Other Events", path: new_event_path} %>
+</div>
+<br />
+<% if student? %>
+    <div class= "row">
+        <div><h4>COURSES & EXAMS</h4></div>
+    </div>
+
+<div class= "row">
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-search", name: "Search Courses", path: "#"} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-eye", name: "View My Courses", path: "#"} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-fort-awesome", name: "Take a Challenge", path: "#"} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-line-chart", name: "View Results", path: "#"} %>
+   
+</div>
+<% end %>
+<br />
+<% if college? %>
+    <div class= "row">
+        <div><h4>MY ADDS</h4></div>
+    </div>
+
+<div class= "row">
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-bullhorn", name: "My Adds", path: "#"} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-battery-quarter", name: "Adds Remaining", path: "#"} %>
+</div>
+<% end %>
+<br />
+<div class= "row">
+    <div><h4>PROFILE</h4></div>
+</div>
+<div class= "row">
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-pencil", name: "Edit Profile", path: edit_user_path(current_user)} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-lock", name: "Change password", path: edit_user_registration_path} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-smile-o", name: "some other icon", path: "#"} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-smile-o", name: "some other icon", path: "#"} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-smile-o", name: "some other icon", path: "#"} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-smile-o", name: "some other icon", path: "#"} %>
+</div>
