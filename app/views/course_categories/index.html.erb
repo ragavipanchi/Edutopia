@@ -2,7 +2,7 @@
 
 <h1>Course Categories</h1>
 
-<table id="categories" class="table-data table table-striped table-bordered" cellspacing="0" width="100%">
+<table class="table-data table table-striped table-bordered" cellspacing="0" width="100%">
   <thead class="default-color">
     <tr>
       <th>Name</th>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Course Category', new_course_category_path %>
+<%= link_to 'New Course Category', new_course_category_path,class: "btn btn-default" %>
+<%= link_to 'Back', admin_index_path,  class: "btn btn-default" %>
