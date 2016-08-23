@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727194922) do
+ActiveRecord::Schema.define(version: 20160821165204) do
 
   create_table "activities", force: :cascade do |t|
+    t.string   "trackable_type"
     t.integer  "trackable_id"
-    t.string   "trackable_type", limit: 255
+    t.string   "owner_type"
     t.integer  "owner_id"
-    t.string   "owner_type",     limit: 255
-    t.string   "key",            limit: 255
+    t.string   "key"
     t.text     "parameters"
+    t.string   "recipient_type"
     t.integer  "recipient_id"
-    t.string   "recipient_type", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 20160727194922) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "title",            limit: 50,  default: ""
+    t.string   "title",            limit: 50, default: ""
     t.text     "comment"
+    t.string   "commentable_type"
     t.integer  "commentable_id"
-    t.string   "commentable_type", limit: 255
     t.integer  "user_id"
-    t.string   "role",             limit: 255, default: "comments"
+    t.string   "role",                        default: "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "comment_html"
@@ -43,33 +43,48 @@ ActiveRecord::Schema.define(version: 20160727194922) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "course_attachments", force: :cascade do |t|
+    t.integer  "course_id"
+    t.string   "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "course_categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string   "course_name"
     t.string   "course_description"
+    t.float    "course_cost"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.float    "course_cost"
+    t.integer  "course_category_id"
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",            limit: 255
+    t.string   "name"
     t.datetime "when"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cached_votes_up",             default: 0
-    t.integer  "comments_count",              default: 0
+    t.integer  "cached_votes_up", default: 0
+    t.integer  "comments_count",  default: 0
     t.index ["cached_votes_up"], name: "index_events_on_cached_votes_up"
     t.index ["comments_count"], name: "index_events_on_comments_count"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "follows", force: :cascade do |t|
-    t.integer  "followable_id",                               null: false
-    t.string   "followable_type", limit: 255,                 null: false
-    t.integer  "follower_id",                                 null: false
-    t.string   "follower_type",   limit: 255,                 null: false
-    t.boolean  "blocked",                     default: false, null: false
+    t.string   "followable_type",                 null: false
+    t.integer  "followable_id",                   null: false
+    t.string   "follower_type",                   null: false
+    t.integer  "follower_id",                     null: false
+    t.boolean  "blocked",         default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["followable_id", "followable_type"], name: "fk_followables"
@@ -77,10 +92,10 @@ ActiveRecord::Schema.define(version: 20160727194922) do
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",           limit: 255, null: false
-    t.integer  "sluggable_id",               null: false
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
     t.string   "sluggable_type", limit: 50
-    t.string   "scope",          limit: 255
+    t.string   "scope"
     t.datetime "created_at"
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
@@ -89,13 +104,13 @@ ActiveRecord::Schema.define(version: 20160727194922) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.text     "content",                                 null: false
+    t.text     "content",                     null: false
     t.integer  "user_id"
-    t.string   "attachment",      limit: 255
+    t.string   "attachment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cached_votes_up",             default: 0
-    t.integer  "comments_count",              default: 0
+    t.integer  "cached_votes_up", default: 0
+    t.integer  "comments_count",  default: 0
     t.text     "content_html"
     t.index ["cached_votes_up"], name: "index_posts_on_cached_votes_up"
     t.index ["comments_count"], name: "index_posts_on_comments_count"
@@ -143,31 +158,31 @@ ActiveRecord::Schema.define(version: 20160727194922) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                   limit: 255, default: "",     null: false
-    t.string   "email",                  limit: 255, default: "",     null: false
-    t.string   "encrypted_password",     limit: 255, default: "",     null: false
-    t.string   "about",                  limit: 255
-    t.string   "avatar",                 limit: 255
-    t.string   "cover",                  limit: 255
-    t.string   "reset_password_token",   limit: 255
+    t.string   "name",                   default: "",     null: false
+    t.string   "email",                  default: "",     null: false
+    t.string   "encrypted_password",     default: "",     null: false
+    t.string   "about"
+    t.string   "avatar"
+    t.string   "cover"
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,      null: false
+    t.integer  "sign_in_count",          default: 0,      null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.string   "confirmation_token",     limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.string   "sex",                    limit: 255, default: "male", null: false
-    t.string   "location",               limit: 255
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "sex",                    default: "male", null: false
+    t.string   "location"
     t.date     "dob"
-    t.string   "phone_number",           limit: 255
-    t.integer  "posts_count",                        default: 0,      null: false
-    t.string   "slug",                   limit: 255
+    t.string   "phone_number"
+    t.integer  "posts_count",            default: 0,      null: false
+    t.string   "slug"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -188,12 +203,12 @@ ActiveRecord::Schema.define(version: 20160727194922) do
   end
 
   create_table "votes", force: :cascade do |t|
+    t.string   "votable_type"
     t.integer  "votable_id"
-    t.string   "votable_type", limit: 255
+    t.string   "voter_type"
     t.integer  "voter_id"
-    t.string   "voter_type",   limit: 255
     t.boolean  "vote_flag"
-    t.string   "vote_scope",   limit: 255
+    t.string   "vote_scope"
     t.integer  "vote_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
