@@ -73,3 +73,7 @@ spec/views/course_attachments/index.html.erb_spec.rb
 spec/views/course_attachments/show.html.erb_spec.rb
 
 spec/views/course_attachments/new.html.erb_spec.rb
+
+Gemfile.lock
+
+db/schema.rb
