@@ -2,8 +2,8 @@
 
 <h1>Course Attachments</h1>
 
-<table>
-  <thead>
+<table class="table-data table table-striped table-bordered" cellspacing="0" width="100%">
+  <thead class="default-color">
     <tr>
       <th>Course</th>
       <th>Avatar</th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= course_attachment.course_id %></td>
         <td><%= course_attachment.avatar %></td>
-        <td><%= link_to 'Show', course_attachment %></td>
-        <td><%= link_to 'Edit', edit_course_attachment_path(course_attachment) %></td>
-        <td><%= link_to 'Destroy', course_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', course_attachment, class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_course_attachment_path(course_attachment),class: "btn btn-default btn-sm" %></td>
+        <td><%= link_to 'Destroy', course_attachment, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,5 @@
 
 <br>
 
-<%= link_to 'New Course Attachment', new_course_attachment_path %>
+<%= link_to 'Back', admin_index_path, class: "btn btn-default" %>
+<%= link_to 'New Course Attachment', new_course_attachment_path, class: "btn btn-default" %>

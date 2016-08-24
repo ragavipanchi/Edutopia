@@ -55,3 +55,25 @@ config/database.yml
 config/database.yml
 
 db/schema.rb
+
+spec/helpers/course_attachments_helper_spec.rb
+
+spec/controllers/course_attachments_controller_spec.rb
+
+spec/models/course_attachment_spec.rb
+
+spec/requests/course_attachments_spec.rb
+sepc/
+spec/routing/course_attachments_routing_spec.rb
+
+spec/views/course_attachments/edit.html.erb_spec.rb
+
+spec/views/course_attachments/index.html.erb_spec.rb
+
+spec/views/course_attachments/show.html.erb_spec.rb
+
+spec/views/course_attachments/new.html.erb_spec.rb
+
+Gemfile.lock
+
+db/schema.rb
