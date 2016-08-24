@@ -29,8 +29,10 @@ Rails.application.routes.draw do
     root to: 'home#home_ui', as: 'test_ui_path'
     get 'home/index', as: 'home'
   end
-  authenticated :user , lambda {|u| u.has_role? :college} do
+
+  authenticated :user , lambda {|u| u.has_role? :student} do
     resources :events, except: [:edit, :update]
+    get 'courses/display_categories' , as: 'display_categories'
   end
   unauthenticated :user do
     root 'home#front'

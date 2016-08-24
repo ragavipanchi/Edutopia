@@ -63,6 +63,10 @@ class CoursesController < ApplicationController
   def available_courses
     @courses = Course.all - current_user.student.courses
   end
+  def display_categories
+    @course_categories = CourseCategory.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course

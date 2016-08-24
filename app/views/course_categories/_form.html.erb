@@ -32,6 +32,15 @@
            <%= f.text_field :description , class: "form-control"%>
          </div>
        </div>
+        <div class="row form-group">
+         <div class="col-sm-6">
+           <strong><%= f.label :avatar %></strong>
+         </div>
+         <div class="col-sm-4">
+           <%= f.file_field:avatar , class: "form-control"%>
+         </div>
+       </div>
+
        <div class="row form-group">
        <div class="col-sm-6 col-sm-6">
             <%= link_to '', course_categories_path,  class: "glyphicon glyphicon-circle-arrow-left" %>
