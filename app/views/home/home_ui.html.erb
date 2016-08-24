@@ -28,8 +28,8 @@
     </div>
 
 <div class= "row">
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-search", name: "Search Courses", path: "#"} %>
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-eye", name: "View My Courses", path: "#"} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-search", name: "View All Courses", path: display_categories_path} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-eye", name: "View My Courses", path: display_categories_path} %>
     <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-fort-awesome", name: "Take a Challenge", path: "#"} %>
     <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-line-chart", name: "View Results", path: "#"} %>
    
