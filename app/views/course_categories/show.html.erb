@@ -1,14 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class = "col-sm-4 col-sm-offset-4">
+   <div class="panel panel-default manage-tabs manage-students-panel">
+     <div class="panel-heading default-color"> Course Information</div>
+      <div class = "panal-body" style = "margin-left:4%">
+        <p id="notice"><%= notice %></p>
+        <div class="row form-group">
+          <div class="col-sm-6">
+            <strong>name:</strong>
+          </div>
+          <div class="col-sm-6">
+            <%= @course_category.name %>
+          </div>
+        </div>
+         <div class="row form-group">
+          <div class="col-sm-6">
+            <strong>description:</strong>
+          </div>
+          <div class="col-sm-6">
+            <%= @course_category.description %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-6 col-sm-6">
+            <%= link_to 'Back', course_categories_path,  class: "btn btn-default" %>
+          </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course_category.name %>
-</p>
+          <div class="col-sm-6 col-sm-6">
+            <%= link_to 'Edit',  edit_course_category_path(@course_category),  class: "btn btn-default"%>
+          </div>
+        </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @course_category.description %>
-</p>
 
-<%= link_to 'Edit', edit_course_category_path(@course_category) %> |
-<%= link_to 'Back', course_categories_path %>
+      </div>
+    </div>
+
+</div>
