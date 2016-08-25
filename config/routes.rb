@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   authenticated :user , lambda {|u| u.has_role? :admin} do
       root "admin#index", :as => "admin_root"
       get 'admin/index'
-      get 'home/index'
+      resources :newsfeeds
       resources :course_categories
       resources :videos
       resources :teachers
