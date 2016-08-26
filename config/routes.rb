@@ -32,8 +32,10 @@ Rails.application.routes.draw do
   end
 
   authenticated :user , lambda {|u| u.has_role? :student} do
-    resources :events, except: [:edit, :update]
     get 'courses/display_categories' , as: 'display_categories'
+  end
+  authenticated :user, lambda{|u| u.has_role? :college} do
+     resources :events, except: [:edit, :update]
   end
   unauthenticated :user do
     root 'home#front'

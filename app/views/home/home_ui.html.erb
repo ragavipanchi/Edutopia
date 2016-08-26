@@ -6,8 +6,6 @@
     <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-arrow-circle-right", name: "Collages I Follow", path: friends_user_path(current_user)}%>
     <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-search", name: "Search Colleges", path: find_friends_path} %>
     <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-university", name: "My college Feeds ", path: "#"}%>
-    
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-group", name: "Discussions", path: "#"} if student?%>  
 </div>
 
 <br />
@@ -53,8 +51,4 @@
 <div class= "row">
     <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-pencil", name: "Edit Profile", path: edit_user_path(current_user)} %>
     <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-lock", name: "Change password", path: edit_user_registration_path} %>
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-smile-o", name: "some other icon", path: "#"} %>
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-smile-o", name: "some other icon", path: "#"} %>
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-smile-o", name: "some other icon", path: "#"} %>
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-smile-o", name: "some other icon", path: "#"} %>
 </div>
