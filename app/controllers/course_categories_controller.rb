@@ -31,7 +31,7 @@ class CourseCategoriesController < ApplicationController
   end
 
   # PATCH/PUT /course_categories/1
-  def update
+  def update  
     if @course_category.update(course_category_params)
       redirect_to @course_category, notice: 'Course category was successfully updated.'
     else
