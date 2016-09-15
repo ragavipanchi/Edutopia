@@ -8,14 +8,7 @@ default: &default
     # For details on connection pooling, see rails configuration guide
     # http://guides.rubyonrails.org/configuring.html#database-pooling
     pool: 5
-  
- development:
-   <<: *default
-   database: me_hub_development
+    production:
+      <<: *default
+      database: me_hubs_production
  
- test:
-   <<: *default
-   database: me_hub_test
- production:
-   <<: *default
-   database: me_hubs_production
