@@ -1,4 +1,6 @@
 class CourseAttachment < ApplicationRecord
-	mount_uploader :avatar, AvatarUploader
-	belongs_to :course
+  mount_uploader :attachment, AttachmentUploader
+  belongs_to :course
+
+  validates :course_id, presence: true
 end

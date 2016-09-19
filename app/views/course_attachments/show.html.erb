@@ -1,37 +1,31 @@
 <div class = "col-sm-4 col-sm-offset-4">
-   <div class="panel panel-default manage-tabs manage-students-panel">
-     <div class="panel-heading default-color"> Course Information</div>
-      <div class = "panal-body" style = "margin-left:4%">
-        <p id="notice"><%= notice %></p>
-        <div class="row form-group">
-          <div class="col-sm-6">
-            <strong>Course:</strong>
-          </div>
-          <div class="col-sm-6">
-            <%= @course_attachment.course_id %>
-          </div>
+  <div class="panel panel-default manage-tabs manage-students-panel">
+    <div class="panel-heading default-color"> Course Information</div>
+    <div class = "panal-body" style = "margin-left:4%">
+      <div class="row form-group">
+        <div class="col-sm-6">
+          <strong>Course:</strong>
         </div>
-         <div class="row form-group">
-          <div class="col-sm-6">
-            <strong>Avatar:</strong>
-          </div>
-          <div class="col-sm-6">
-            <%=@course_attachment.avatar %>
-          </div>
+        <div class="col-sm-6">
+          <%= @course_attachment.course&.course_name %>
         </div>
-        <div class="row form-group">
-          <div class="col-sm-6 col-sm-6">
-            <%= link_to 'Back', course_attachments_path,  class: "btn btn-default" %>
-          </div>
-
-          <div class="col-sm-6 col-sm-6">
-             <%= link_to 'Edit',  edit_course_attachment_path(@course_attachment),  class: "btn btn-default"%>
-          </div>
-       </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-sm-6">
+          <strong>Attachment:</strong>
         </div>
-
-
+        <div class="col-sm-6">
+          <%= link_to @course_attachment.attachment.file.filename, course_attachment_path(id: @course_attachment, view_pdf: true), style: 'color: #428bca;' %>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-sm-6 col-sm-6">
+          <%= link_to 'Back', course_attachments_path,  class: "btn btn-default" %>
+        </div>
+        <div class="col-sm-6 col-sm-6">
+          <%= link_to 'Edit',  edit_course_attachment_path(@course_attachment),  class: "btn btn-primary white" %>
+        </div>
       </div>
     </div>
-
+  </div>
 </div>

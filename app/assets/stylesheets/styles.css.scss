@@ -185,3 +185,9 @@ p {
 .atwho-view .cur {
   background: $navbar-color;
 }
+
+label.error {
+  color: red;
+  font-size: 12px;
+  font-weight: normal;
+}

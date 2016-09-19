@@ -20,15 +20,15 @@
             <strong> <%= f.label :course_name %></strong>
           </div>
           <div class="col-sm-4">
-            <%= f.text_field :course_name , class: "form-control"%>
+            <%= f.text_field :course_name, class: "form-control" %>
           </div>
         </div>
-         <div class="row form-group">
+        <div class="row form-group">
           <div class="col-sm-6">
             <strong><%= f.label :course_description %></strong>
           </div>
           <div class="col-sm-4">
-            <%= f.text_field :course_description , class: "form-control"%>
+            <%= f.text_field :course_description, class: "form-control" %>
           </div>
         </div>
         <div class="row form-group">
@@ -36,22 +36,18 @@
             <strong><%= f.label :course_category %></strong>
           </div>
           <div class="col-sm-4">
-            <%= f.collection_select(:course_category_id, CourseCategory.all, :id, :name, {include_hidden: false} , class: "form-control")  %>
+            <%= f.collection_select(:course_category_id, CourseCategory.all, :id, :name, { include_hidden: false, prompt: true }, class: "form-control") %>
           </div>
         </div>
         <div class="row form-group">
-        <div class="col-sm-6 col-sm-6">
-             <%= link_to '', courses_path, class: "glyphicon glyphicon-circle-arrow-left" %>
-
-          </div>
-
           <div class="col-sm-6 col-sm-6">
-             <%= f.submit "Submit", class: "btn btn-success"%>
-
+            <%= link_to '', courses_path, class: "glyphicon glyphicon-circle-arrow-left" %>
+          </div>
+          <div class="col-sm-6 col-sm-6">
+             <%= f.submit "Submit", class: "btn btn-success" %>
           </div>
         </div>
       </div>
     </div>
-
-</div>
+  </div>
 <% end %>

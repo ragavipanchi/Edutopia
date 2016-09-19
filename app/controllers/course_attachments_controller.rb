@@ -8,6 +8,11 @@ class CourseAttachmentsController < ApplicationController
 
   # GET /course_attachments/1
   def show
+    if params[:view_pdf].present?
+      send_file @course_attachment.attachment.path,
+                type: @course_attachment.attachment.file.content_type,
+                disposition: 'inline'
+    end
   end
 
   # GET /course_attachments/new
@@ -21,12 +26,23 @@ class CourseAttachmentsController < ApplicationController
 
   # POST /course_attachments
   def create
-    @course_attachment = CourseAttachment.new(course_attachment_params)
+    if params[:course_attachment][:attachment].present?
+      extension = params[:course_attachment][:attachment].original_filename
+                                                         .split('.').last
+      unless extension == 'pdf'
+        redirect_to new_course_attachment_path,
+                    alert: 'Invalid file format. Please choose a pdf file to upload'
+        return
+      end
+      @course_attachment = CourseAttachment.new(course_attachment_params)
 
-    if @course_attachment.save
-      redirect_to @course_attachment, notice: 'Course attachment was successfully created.'
+      if @course_attachment.save
+        redirect_to @course_attachment, notice: 'Course attachment was successfully created.'
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to new_course_attachment_path, alert: 'Please choose a pdf file to upload'
     end
   end
 
@@ -53,6 +69,6 @@ class CourseAttachmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def course_attachment_params
-      params.require(:course_attachment).permit(:course_id, :avatar)
+      params.require(:course_attachment).permit(:course_id, :attachment)
     end
 end

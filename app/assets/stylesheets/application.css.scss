@@ -21,7 +21,6 @@
 @import "*";
 
 @mixin theme-color{
-
   background-color: $navbar-color !important;
   border: $navbar-color solid !important;
 }
@@ -34,31 +33,35 @@
   background-color:#fff;
   color:#666 !important;
 }
-.notice{
-    @extend .alert;
-    @extend .alert-info;
 
+.notice{
+  @extend .alert;
+  @extend .alert-info;
 }
+
 .default-color{
-    @include theme-color;
-    color:#fff !important;
+  @include theme-color;
+  color:#fff !important;
 }
+
 .front-page-icon-font{
-    font-size: 60px;
+  font-size: 60px;
 }
+
 .menu-icon-font{
-    font-size: 30px;
+  font-size: 30px;
 }
+
 .popover{
-    max-width: 100%; /* Max Width of the popover (depending on the container!) */
+  max-width: 100%; /* Max Width of the popover (depending on the container!) */
 }
+
 .popover-inside-button{
-    width:100%;
-    margin:2%;
+  width:100%;
+  margin:2%;
 }
 
 // Spinner
-
 .spinner {
   display: inline-block;
   opacity: 0;
@@ -80,53 +83,55 @@
 }
 
 .has-spinner.btn-mini.active .spinner {
-    width: 10px;
+  width: 10px;
 }
 
 .has-spinner.btn-small.active .spinner {
-    width: 13px;
+  width: 13px;
 }
 
 .has-spinner.btn.active .spinner {
-    width: 16px;
+  width: 16px;
 }
 
 .has-spinner.btn-large.active .spinner {
-    width: 19px;
+  width: 19px;
 }
 
 .video-box{
-    height:220px;
-    width:391px;
-    position:relative;
+  height:220px;
+  width:391px;
+  position:relative;
 }
 
 .video-thumbnail{
-    z-index:300;
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
+  z-index:300;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
 }
 
 .video-frame{
-    z-index:100;
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
+  z-index:100;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
 }
 
 .thumbnail-link .video-thumbnail{
-    display:block;
+  display:block;
 }
 
 .thumbnail-link:hover .video-thumbnail{
-    display:none;
+  display:none;
 }
+
 body{
-  padding-top: 100px;
+  padding-top: 30px;
 }
+
 .glyphicon{
   font-size: 30px;
 }

@@ -7,9 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -18,9 +16,11 @@
       <tr>
         <td><%= course_category.name %></td>
         <td><%= course_category.description %></td>
-        <td><%= link_to 'Show', course_category,class: "btn btn-info btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_course_category_path(course_category),class: "btn btn-default btn-sm" %></td>
-        <td><%= link_to 'Destroy', course_category, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger btn-sm" %></td>
+        <td>
+          <%= link_to 'Show', course_category, class: "btn btn-info btn-sm white" %>
+          <%= link_to 'Edit', edit_course_category_path(course_category),class: "btn btn-primary btn-sm white" %>
+          <%= link_to 'Remove', course_category, method: :delete, data: { confirm: 'Are you sure want to remove?' }, class: "btn btn-danger btn-sm white" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 <%= link_to 'Back', admin_index_path,  class: "btn btn-default" %>
-<%= link_to 'New Course Category', new_course_category_path,class: "btn btn-default" %>
+<%= link_to 'Create Course Category', new_course_category_path, class: "btn btn-primary white" %>

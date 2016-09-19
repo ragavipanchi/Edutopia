@@ -1,30 +1,30 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Course Attachments</h1>
 
 <table class="table-data table table-striped table-bordered" cellspacing="0" width="100%">
   <thead class="default-color">
     <tr>
-      <th>Course</th>
-      <th>Avatar</th>
-      <th colspan="3"></th>
+      <th>Course Name</th>
+      <th>Attachment</th>
+      <th colspan="2">
+        Actions
+      </th>
     </tr>
   </thead>
 
   <tbody>
     <% @course_attachments.each do |course_attachment| %>
       <tr>
-        <td><%= course_attachment.course_id %></td>
-        <td><%= course_attachment.avatar %></td>
-        <td><%= link_to 'Show', course_attachment, class: "btn btn-info btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_course_attachment_path(course_attachment),class: "btn btn-default btn-sm" %></td>
-        <td><%= link_to 'Destroy', course_attachment, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger btn-sm" %></td>
+        <td><%= course_attachment.course&.course_name %></td>
+        <td><%= link_to course_attachment.attachment.file.filename, course_attachment_url(id: course_attachment.id, view_pdf: true), style: 'color: #428bca;' %></td>
+        <td>
+          <%= link_to 'Edit', edit_course_attachment_path(course_attachment),class: "btn btn-primary btn-sm white" %>
+          <%= link_to 'Remove', course_attachment, method: :delete, data: { confirm: 'Are you sure wanto delete?' }, class: "btn btn-danger btn-sm white" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
+<br/>
 
 <%= link_to 'Back', admin_index_path, class: "btn btn-default" %>
-<%= link_to 'New Course Attachment', new_course_attachment_path, class: "btn btn-default" %>
+<%= link_to 'New Course Attachment', new_course_attachment_path, class: "btn btn-primary white" %>
