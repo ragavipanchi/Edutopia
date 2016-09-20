@@ -1,4 +1,4 @@
-<%= form_for(@course) do |f| %>
+<%= form_for(@course, html: { id: 'create_course' }) do |f| %>
   <% if @course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -15,6 +15,10 @@
      <div class="panel-heading default-color"> Course Information</div>
       <div class = "panal-body" style = "margin-left:4%">
         <p id="notice"><%= notice %></p>
+        <div class="row">
+          <small>All fields are necessary</small>
+        </div>
+        <br>
         <div class="row form-group">
           <div class="col-sm-6">
             <strong> <%= f.label :course_name %></strong>
@@ -31,6 +35,26 @@
             <%= f.text_field :course_description, class: "form-control" %>
           </div>
         </div>
+
+        <div class="row form-group">
+          <div class="col-sm-6">
+            <strong><%= f.label :author %></strong>
+          </div>
+          <div class="col-sm-4">
+            <%= f.text_field :author, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-sm-6">
+            <strong><%= f.label :duration %></strong>
+          </div>
+          <div class="col-sm-4">
+            <%= f.text_field :duration, class: "form-control" %>
+          </div>
+        </div>
+
+
         <div class="row form-group">
           <div class="col-sm-6">
             <strong><%= f.label :course_category %></strong>
@@ -51,3 +75,9 @@
     </div>
   </div>
 <% end %>
+
+
+
+<script type="text/javascript">
+  validateCourse('create_course');
+</script>
