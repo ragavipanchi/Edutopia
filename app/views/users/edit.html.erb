@@ -32,22 +32,32 @@
           <%= f.label :about %>
           <%= f.text_area :about, placeholder: 'About', class: 'form-control' %>
         </div>
+        <% if college? %>
+          <div class="form-group">
+            <%= f.label :established_year%>
+            <%= f.text_field :established_year, placeholder: 'Year of Establishment', class: 'form-control' %>
+          </div>
+        <% end %>
         <div class="form-group">
           <%= f.label :location %>
           <%= f.text_field :location, placeholder: 'Location', class: 'form-control' %>
         </div>
+
         <div class="form-group">
           <%= f.label :phone_number %>
           <%= f.text_field :phone_number, placeholder: 'Phone Number', class: 'form-control' %>
         </div>
+        <% if student? %>
         <div class="form-group">
           <%= f.label :dob %>
           <%= f.text_field :dob, placeholder: 'Date of Birth', class: 'form-control' %>
         </div>
+
         <div class="form-group">
           <%= f.label :sex %><br>
           <%= f.select :sex, options_for_seasons, class: 'form-control', prompt: 'Select One' %>
         </div>
+        <% end %>
         <div class="actions">
           <%= submit_tag 'Update', class: 'btn btn-primary' %>
         </div>
