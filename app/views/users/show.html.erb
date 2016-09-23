@@ -1,4 +1,4 @@
-<% if !current_user.has_role? :student %>
+<% if !(current_user.has_role? :student) %>
   <%= render 'shared/cover', user: @user %>
 <% end %>
 
