@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="col-md-1">
+
+  </div>
+
+  <div class="col-md-10 well">
+
+    <%= render partial: "home/search_college_form" %>
+
+    <div id="users">
+      <%= render(@users) || render('shared/no_resource', resources: 'Users') %>
+    </div>
+    <%= render 'shared/paginate', resources: @users %>
+<!--
+    <section>
+      <header>
+        <h1 class="h3">Search Results</h1>
+      </header>
+
+      <ol class="list-group">
+        <% @search.results.each do |user| %>
+          <li class="list-group-item clearfix">
+            <h3 class="pull-right">
+
+            </h3>
+
+            <h2 class="h3">
+              <%= user.name %> <br>
+              <small>
+                <%= user.email %>
+              </small>
+            </h2>
+          </li>
+        <% end %>
+      </ol>
+
+
+    </section> -->
+  </div>
+
+  <div class="col-md-1">
+
+  </div>
+</div>

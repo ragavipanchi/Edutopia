@@ -26,4 +26,11 @@ class User < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
+
+  searchable do
+    text :name
+    text :email, :default_boost => 2
+  end
+
+
 end

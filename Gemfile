@@ -44,7 +44,7 @@ gem 'devise'
 gem 'rolify'
 gem 'cancancan'
 gem 'carrierwave'
-gem 'friendly_id', '~> 5.0.0'  
+gem 'friendly_id', '~> 5.0.0'
 
 gem 'will_paginate'
 gem 'public_activity'
@@ -66,6 +66,7 @@ group :development do
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
+    gem 'sunspot_solr'
 end
 gem 'puma'
 # Use ActiveModel has_secure_password
@@ -79,3 +80,7 @@ gem 'puma'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+gem 'sunspot_rails'
+gem 'progress_bar'
