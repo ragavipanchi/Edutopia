@@ -1,0 +1,31 @@
+<h1> Course Categories </h1>
+<div class = "container">
+ <div class="row">
+<% @course_categories.each{ |course_category| %>
+
+
+
+  <div class="col-sm-3 col-md-3">
+    <div class="thumbnail">
+      <%=image_tag course_category.avatar.url if course_category.avatar.present? %>
+      <div class="caption">
+        <h3><%= course_category.name%></h3>
+        <p><%= course_category.description %></p>
+        <div class="col-sm-offset-6">
+          <span data-toggle="popover" class="btn btn-primary" title="Courses Available" data-content="
+          <% if !course_category.courses.empty? %>
+            <% course_category.courses.each do |course| %>
+              <%= course.course_name %> <br>
+            <% end %>
+          <% end %>
+          ">Button</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+<%}%>
+</div>
+</div>
