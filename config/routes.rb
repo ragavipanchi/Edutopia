@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'courses/display_courses', as: "display_courses"
+
   resources :course_attachments
   resources :posts
   resources :comments, only: [:create, :destroy]
@@ -33,6 +35,7 @@ Rails.application.routes.draw do
 
   authenticated :user , lambda {|u| u.has_role? :student} do
     get 'courses/display_categories' , as: 'display_categories'
+    get 'courses/display_course_attachments' , as: 'display_course_attachments'
   end
   authenticated :user, lambda{|u| u.has_role? :college} do
      resources :events, except: [:edit, :update]

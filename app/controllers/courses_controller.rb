@@ -66,7 +66,13 @@ class CoursesController < ApplicationController
   def display_categories
     @course_categories = CourseCategory.all
   end
-
+  def display_courses
+  @course_category = CourseCategory.find(params[:course_category_id])
+  @courses = @course_category.courses
+  end
+  def display_course_attachments
+    
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
@@ -75,6 +81,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:course_name, :course_description, :course_category_id)
+      params.require(:course).permit(:course_name, :course_description, :course_category_id, :author, :duration, :course_cost)
     end
 end

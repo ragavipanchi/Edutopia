@@ -68,6 +68,9 @@ group :development do
     gem 'capistrano3-puma',   require: false
 end
 gem 'puma'
+gem 'streamio-ffmpeg'
+gem 'carrierwave-video'
+gem 'carrierwave-ffmpeg'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,22 +1,21 @@
 <h1> Course Categories </h1>
 <div class = "container">
  <div class="row">
-<% @course_categories.each{ |course_category| %>	
-  
-
-
+<% @course_categories.each{ |course_category| %>
   <div class="col-sm-3 col-md-3">
     <div class="thumbnail">
       <%=image_tag course_category.avatar.url if course_category.avatar.present? %>
       <div class="caption">
         <h3><%= course_category.name%></h3>
         <p><%= course_category.description %></p>
-        <div class="col-sm-offset-6"><a href="#" class="btn btn-primary" role="button">Button</a></div>
-      </div>  
+        <div class="col-sm-offset-6">
+          <%=link_to "courses" , display_courses_path(course_category_id: course_category.id) ,class: "btn btn-primary"%>
+        </div>
+      </div>
     </div>
   </div>
 
 
 <%}%>
-</div> 
+</div>
 </div>
