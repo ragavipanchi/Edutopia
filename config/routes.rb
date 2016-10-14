@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  
   resources :course_attachments
   resources :posts
   resources :comments, only: [:create, :destroy]
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
 
 
   authenticated :user , lambda {|u| u.has_role? :admin} do
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
       root "admin#index", :as => "admin_root"
       get 'admin/index'
       resources :newsfeeds
