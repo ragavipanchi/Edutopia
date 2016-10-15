@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :destroy]
 
   def new
+    @event_type = params[:event_type]
     @event = Event.new
   end
 
@@ -34,7 +35,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :when)
+    params.require(:event).permit(:name, :when, :event_type)
   end
 
   def set_event
