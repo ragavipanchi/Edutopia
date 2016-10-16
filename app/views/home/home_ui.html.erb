@@ -14,10 +14,10 @@
 </div>
 
 <div class="row">
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-user-secret", name: "Off Campus Drives", path: new_event_path(event_type: "campus_drive")} %>
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-sitemap", name: "Workshops", path: new_event_path(event_type: "workshop")} %>
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-share-alt", name: "Fests", path: new_event_path(event_type: "fest")} %>
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-odnoklassniki", name: "Other Events", path: new_event_path(event_type: "other_event")} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-user-secret", name: "Off Campus Drives", path: get_event_path("campus_drive") } %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-sitemap", name: "Workshops", path: get_event_path("workshop") } %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-share-alt", name: "Fests", path: get_event_path("fest")} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-odnoklassniki", name: "Other Events", path: get_event_path("other_event")} %>
 </div>
 <br />
 <% if student? %>

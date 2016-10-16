@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  
+
   resources :course_attachments
   resources :posts
   resources :comments, only: [:create, :destroy]
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   authenticated :user, lambda {|u| (u.has_role? :college) || (u.has_role? :student)} do
     root to: 'home#home_ui', as: 'test_ui_path'
     get 'home/index', as: 'home'
+    resources :events, only: [:index]
   end
 
   authenticated :user , lambda {|u| u.has_role? :student} do

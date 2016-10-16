@@ -6,7 +6,10 @@ class EventsController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :destroy]
-
+  def index
+    event_type = params[:event_type]
+    @events =  PublicActivity::Activity.joins("JOIN events ON events.id = activities.trackable_id AND activities.trackable_type = 'Event'").where("events.event_type": event_type, private_flag: false).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+  end
   def new
     @event_type = params[:event_type]
     @event = Event.new
@@ -35,7 +38,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :when, :event_type)
+    params.require(:event).permit(:name, :when, :event_type, :private_flag)
   end
 
   def set_event

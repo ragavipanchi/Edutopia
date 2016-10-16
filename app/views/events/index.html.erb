@@ -1,0 +1,12 @@
+
+
+
+<div id="activities">
+  <% if @events.empty? %>
+    <div class="well">
+      <%= render('shared/no_resource', resources: 'Activities') %>
+    </div>
+  <% else %>
+    <%= render_activities(@events, layout: '/shared/activity') %>
+  <% end %>
+</div>

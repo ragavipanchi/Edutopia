@@ -9,9 +9,10 @@ class Post < ActiveRecord::Base
   counter_culture :user
   acts_as_votable
   acts_as_commentable
-
+  attr_accessor :private_flag
   include PublicActivity::Model
   tracked only: [:create, :like], owner: proc { |_controller, model| model.user }
+  tracked private_flag: Proc.new{ |controller, model| model.private_flag }
 
   default_scope -> { order('created_at DESC') }
 
@@ -25,5 +26,8 @@ class Post < ActiveRecord::Base
     youtube(width: 400, height: 250, autoplay: true)
     link target: '_blank', rel: 'nofollow'
     simple_format
+  end
+  def private_flag
+   @private_flag || false
   end
 end
