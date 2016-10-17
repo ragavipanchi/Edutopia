@@ -1,26 +1,19 @@
 
-    
+
 
 <div class="container">
     <div class="row">
         <div class="col-sm-12 text-center">
             <div class="panel panel-default">
-                <div class="panel-heading default-color"><h4><%= fa_icon "newspaper-o" %>  Collage News..</h4></div>
+                <div class="panel-heading default-color"><h4><%= fa_icon "newspaper-o" %>  Collage Adds..</h4></div>
                 <div class="panel-body">
                     <div id="newsfeed" class="col-sm-12">
-                      
+
                       <div id="activities">
-                        <% if @activities.empty? %>
-                          <div class="well">
-                            <%= render('shared/no_resource', resources: 'Activities') %>
-                          </div>
-                        <% else %>
-                          <%= render_activities(@activities, layout: '/shared/activity') %>
-                        <% end %>
+
                       </div>
-                      <%= render 'shared/paginate', resources: @activities %>
                   </div>
-                   
+
                 </div>
             </div>
         </div>

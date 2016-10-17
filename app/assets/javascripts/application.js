@@ -87,3 +87,56 @@ $(document).ready(function(){
 
 
 });
+
+
+
+//  validate course
+
+function validateCourse(formID) {
+  $("#" + formID).validate({
+    onkeyup: false,
+    onfocusout: function (element, event) {
+      this.element(element);
+    },
+    invalidHandler: function () {
+      $(this).find(":input.error:first").focus();
+    },
+    rules: {
+      "course[course_name]": {
+        required: true,
+      },
+      "course[course_description]": {
+        required: true,
+      },
+      "course[course_cost]": {
+        required: true,
+      },
+      "course[course_category_id]": {
+        required: true,
+      },
+      "course[author]": {
+        required: true,
+      },
+      "course[duration]": {
+        required: true,
+      }
+    },
+    messages: {
+      "course[course_name]": {
+        required: "Please fill name",
+      },
+      "course[course_description]": {
+        required: "Please fill description"
+      },
+      "course[author]": {
+        required: "Please enter author name"
+      },
+      "course[duration]": {
+        required: "Please fill duration"
+      }
+    },
+    submitHandler: function (form) {
+      form.submit();
+    }
+  });
+}

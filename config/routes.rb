@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'courses/display_courses', as: "display_courses"
 
+
   resources :course_attachments
   resources :posts
   resources :comments, only: [:create, :destroy]
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
 
   authenticated :user , lambda {|u| u.has_role? :admin} do
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
       root "admin#index", :as => "admin_root"
       get 'admin/index'
       resources :newsfeeds
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
   authenticated :user, lambda {|u| (u.has_role? :college) || (u.has_role? :student)} do
     root to: 'home#home_ui', as: 'test_ui_path'
     get 'home/index', as: 'home'
+    resources :events, only: [:index]
   end
 
   authenticated :user , lambda {|u| u.has_role? :student} do

@@ -4,6 +4,7 @@
 <% @course_categories.each{ |course_category| %>
 
 
+
   <div class="col-sm-3 col-md-3">
     <div class="thumbnail">
       <%=image_tag course_category.avatar.url if course_category.avatar.present? %>
@@ -11,8 +12,6 @@
         <h3><%= course_category.name%></h3>
         <p><%= course_category.description %></p>
         <div class="col-sm-offset-6">
-          <%=link_to "courses" , display_courses_path(course_category_id: course_category.id) ,class: "btn btn-primary"%>
-        </div>
           <span data-toggle="popover" class="btn btn-primary" title="Courses Available" data-content="
           <% if !course_category.courses.empty? %>
             <% course_category.courses.each do |course| %>
