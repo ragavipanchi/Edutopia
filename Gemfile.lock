@@ -45,13 +45,13 @@ GEM
     after_commit_action (1.0.1)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
-    airbrussh (1.1.0)
+    airbrussh (1.1.1)
       sshkit (>= 1.6.1, != 1.7.0)
-    arel (7.1.0)
+    arel (7.1.4)
     auto_html (1.6.4)
       redcarpet (~> 3.1)
       rinku (~> 1.5.0)
-    autoprefixer-rails (6.3.7)
+    autoprefixer-rails (6.5.1)
       execjs
     aws_cf_signer (0.1.3)
     bcrypt (3.1.11)
@@ -65,17 +65,17 @@ GEM
       sass (~> 3.2)
     builder (3.2.2)
     cancancan (1.15.0)
-    capistrano (3.6.0)
+    capistrano (3.6.1)
       airbrussh (>= 1.0.0)
       capistrano-harrow
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
-    capistrano-bundler (1.1.4)
+    capistrano-bundler (1.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
     capistrano-harrow (0.5.3)
-    capistrano-rails (1.1.7)
+    capistrano-rails (1.1.8)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capistrano-rvm (0.1.2)
@@ -90,7 +90,13 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
-    cloudinary (1.2.2)
+    carrierwave-ffmpeg (1.0.0)
+      carrierwave
+      streamio-ffmpeg
+    carrierwave-video (0.5.6)
+      carrierwave
+      streamio-ffmpeg
+    cloudinary (1.2.3)
       aws_cf_signer
       rest-client
     coderay (1.1.1)
@@ -115,7 +121,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    domain_name (0.5.20160615)
+    domain_name (0.5.20160826)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -143,7 +149,7 @@ GEM
       rspec (>= 2.14, < 4.0)
     haml (4.0.7)
       tilt
-    http-cookie (1.0.2)
+    http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
     jquery-atwho-rails (1.3.2)
@@ -152,7 +158,7 @@ GEM
       jquery-rails
       railties (>= 3.1)
       sass-rails
-    jquery-rails (4.1.1)
+    jquery-rails (4.2.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
@@ -180,9 +186,10 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mimemagic (0.3.1)
+    mimemagic (0.3.2)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
+    multi_json (1.12.1)
     nenv (0.3.0)
     nested_form (0.3.2)
     net-scp (1.2.1)
@@ -190,17 +197,15 @@ GEM
     net-ssh (3.2.0)
     netrc (0.11.0)
     nio4r (1.2.1)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
-    nokogumbo (1.4.7)
+    nokogumbo (1.4.9)
       nokogiri
-    notiffany (0.1.0)
+    notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    pg (0.18.4)
-    pkg-config (1.1.7)
+    pg (0.19.0)
     populator (1.0.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -263,16 +268,16 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    raindrops (0.16.0)
-    rake (11.2.2)
+    raindrops (0.17.0)
+    rake (11.3.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     redcarpet (3.3.4)
-    remotipart (1.3.0)
+    remotipart (1.3.1)
     rename (1.0.2)
       rails (>= 3.0.0)
-    responders (2.2.0)
+    responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     rest-client (2.0.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -284,7 +289,7 @@ GEM
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
-    rspec-core (3.5.1)
+    rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -293,8 +298,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
-    ruby_dep (1.3.1)
-    sanitize (4.1.0)
+    ruby_dep (1.5.0)
+    sanitize (4.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.4.4)
       nokogumbo (~> 1.4.1)
@@ -307,24 +312,27 @@ GEM
       tilt (>= 1.1, < 3)
     shellany (0.0.1)
     slop (3.6.0)
-    spring (1.7.2)
+    spring (2.0.0)
+      activesupport (>= 4.2)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.1.1)
+    sprockets-rails (3.2.0)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.11)
-    sshkit (1.11.1)
+    sqlite3 (1.3.12)
+    sshkit (1.11.3)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    streamio-ffmpeg (3.0.0)
+      multi_json (~> 1.8)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.0)
+    uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -337,7 +345,7 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    will_paginate (3.1.0)
+    will_paginate (3.1.5)
 
 PLATFORMS
   ruby
@@ -358,6 +366,8 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-puma
   carrierwave
+  carrierwave-ffmpeg
+  carrierwave-video
   cloudinary
   counter_culture (~> 0.1.33)
   devise
@@ -374,7 +384,6 @@ DEPENDENCIES
   populator
   pry-rails
   public_activity
-  puma
   rails (= 5.0.0)
   rails_12factor
   rails_admin (~> 1.0)
@@ -385,9 +394,10 @@ DEPENDENCIES
   sass-rails
   spring
   sqlite3
+  streamio-ffmpeg
   uglifier (>= 1.3.0)
   unicorn
   will_paginate
 
 BUNDLED WITH
-   1.13.3
+   1.12.5

@@ -18,7 +18,7 @@ class Follow < ActiveRecord::Base
 
   include PublicActivity::Model
   tracked only: [:create], owner: Proc.new{ |controller, model| model.follower }
-
+  tracked only: [:create, :like], private_flag: Proc.new{ |controller, model| model.private_flag }
   validates_presence_of :follower
   validates_presence_of :followable
   def private_flag

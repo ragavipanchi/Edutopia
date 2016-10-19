@@ -1,8 +1,10 @@
 # encoding: utf-8
 
 class AttachmentUploader < CarrierWave::Uploader::Base
+  include CarrierWave::Video
   # Choose what kind of storage to use for this uploader:
-  storage :file if Rails.env.development?
+  storage :file 
+  
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -12,6 +14,6 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(pdf)
+    %w(pdf mp4)
   end
 end

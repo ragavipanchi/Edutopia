@@ -1,0 +1,15 @@
+
+<h1>Courses</h1>
+<% @courses.each{ |course| %>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <%= link_to %{
+    <span class="pull-right">
+    #{course.course_attachments.length }
+    </span>
+    #{course.course_name}}.html_safe, display_course_attachments_path() %>
+    <p><%= course.course_description %></p>
+  </li>
+</ul>
+<% } %>

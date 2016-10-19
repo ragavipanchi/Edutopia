@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
 
   include PublicActivity::Model
   tracked only: [:create, :like], owner: Proc.new{ |controller, model| model.user }
-  tracked private_flag: Proc.new{ |controller, model| model.private_flag }
+  tracked only: [:create, :like], private_flag: Proc.new{ |controller, model| model.private_flag }
   validates_presence_of :name
   validates_presence_of :when
   validates_presence_of :user
