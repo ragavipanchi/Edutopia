@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :events
   has_one :student
+  has_one :college
 
   mount_uploader :avatar, AvatarUploader
   mount_uploader :cover, AvatarUploader
@@ -27,4 +28,5 @@ class User < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
+
 end

@@ -41,4 +41,9 @@ RailsAdmin.config do |config|
   Kaminari.configure do |config|
       config.page_method_name = :per_page_kaminari
   end
+  config.model 'College' do
+    import do
+      mapping_key :id
+    end
+  end
 end
