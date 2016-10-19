@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
   attr_accessor :private_flag
   include PublicActivity::Model
   tracked only: [:create, :like], owner: proc { |_controller, model| model.user }
-  tracked private_flag: Proc.new{ |controller, model| model.private_flag }
+  tracked only: [:create, :like], private_flag: Proc.new{ |controller, model| model.private_flag }
 
   default_scope -> { order('created_at DESC') }
 

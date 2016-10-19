@@ -19,6 +19,7 @@ class Comment < ActiveRecord::Base
 
   include PublicActivity::Model
   tracked only: [:create], owner: proc { |_controller, model| model.user }
+  tracked only: [:create, :like], private_flag: Proc.new{ |controller, model| model.private_flag }
 
   validates_presence_of :comment
   validates_presence_of :commentable
