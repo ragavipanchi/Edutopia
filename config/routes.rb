@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :colleges
   get 'courses/display_courses', as: "display_courses"
 
 
