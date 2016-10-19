@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
 
 
+  get 'confirmations/show'
+
   get 'courses/display_courses', as: "display_courses"
 
 
   resources :course_attachments
   resources :posts
   resources :comments, only: [:create, :destroy]
-  devise_for :users
+  as :user do
+      patch '/user/confirmation' => 'confirmations#update', :via => :patch, :as => :update_user_confirmation
+  end
+  devise_for :users, :controllers => { :confirmations => "confirmations" }
   resources :users do
     member do
       get :friends
