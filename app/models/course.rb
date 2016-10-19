@@ -1,8 +1,8 @@
 class Course < ActiveRecord::Base
      has_many :student_courses
      has_many :students , through: :student_courses
-     has_and_belongs_to_many :videos
      belongs_to :course_category
+     has_many :course_attachments
 
      validates :course_name, presence: true
      validates :course_description, presence: true

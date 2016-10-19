@@ -29,11 +29,11 @@ class CourseAttachmentsController < ApplicationController
     if params[:course_attachment][:attachment].present?
       extension = params[:course_attachment][:attachment].original_filename
                                                          .split('.').last
-      unless extension == 'pdf'
-        redirect_to new_course_attachment_path,
-                    alert: 'Invalid file format. Please choose a pdf file to upload'
-        return
-      end
+      #unless extension == 'pdf'
+        #redirect_to new_course_attachment_path,
+          #          alert: 'Invalid file format. Please choose a pdf file to upload'
+        #return
+      #end
       @course_attachment = CourseAttachment.new(course_attachment_params)
 
       if @course_attachment.save

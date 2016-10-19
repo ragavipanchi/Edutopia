@@ -68,7 +68,14 @@ group :development do
     gem 'capistrano3-puma',   require: false
     gem 'sunspot_solr'
 end
-gem 'puma'
+
+gem 'streamio-ffmpeg'
+gem 'carrierwave-video'
+gem 'carrierwave-ffmpeg'
+
+
+gem 'rails_admin', '~> 1.0'
+gem 'rails_admin_rollincode', '~> 1.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -80,7 +87,6 @@ gem 'puma'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
 
 gem 'sunspot_rails'
 gem 'progress_bar'

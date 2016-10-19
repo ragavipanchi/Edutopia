@@ -9,13 +9,12 @@ class HomeController < ApplicationController
   def index
     @post = Post.new
     @friends = @user.all_following.unshift(@user)
-    @activities = PublicActivity::Activity.where(owner_id: @friends).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @activities = PublicActivity::Activity.where(owner_id: @friends, private_flag: false).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def front
-    @activities = PublicActivity::Activity.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @activities = PublicActivity::Activity.where(private_flag: false).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
-
   def find_friends
   @friends = @user.all_following
   #binding.pry

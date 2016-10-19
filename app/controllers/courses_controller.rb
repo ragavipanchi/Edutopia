@@ -66,7 +66,13 @@ class CoursesController < ApplicationController
   def display_categories
     @course_categories = CourseCategory.all
   end
-
+  def display_courses
+  @course_category = CourseCategory.find(params[:course_category_id])
+  @courses = @course_category.courses
+  end
+  def display_course_attachments
+    
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course

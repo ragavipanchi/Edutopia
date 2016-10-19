@@ -3,9 +3,13 @@
     <%= f.label :event_name %>
     <%= f.text_field :name, autofocus: true, placeholder: 'Event Name', class: 'form-control' %>
   </div>
+  <%= f.hidden_field :event_type, value: @event_type %>
   <div class="form-group">
     <%= f.label :when? %>
     <%= f.text_field :when, placeholder: 'When is it?', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.check_box :private_flag %> Is it private event?
   </div>
   <div class="actions">
     <%= f.submit :create, class: 'btn btn-primary' %>

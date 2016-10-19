@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
   include Shared::Callbacks
   include ActsAsCommentable::Comment
   include Mention
-
+  attr_accessor :private_flag
   belongs_to :commentable, polymorphic: true, counter_cache: true
   default_scope -> { order('created_at DESC') }
 
@@ -19,6 +19,7 @@ class Comment < ActiveRecord::Base
 
   include PublicActivity::Model
   tracked only: [:create], owner: proc { |_controller, model| model.user }
+  tracked only: [:create, :like], private_flag: Proc.new{ |controller, model| model.private_flag }
 
   validates_presence_of :comment
   validates_presence_of :commentable
@@ -29,5 +30,8 @@ class Comment < ActiveRecord::Base
     youtube(width: 400, height: 250, autoplay: true)
     link target: '_blank', rel: 'nofollow'
     simple_format
+  end
+  def private_flag
+   @private_flag || false
   end
 end
