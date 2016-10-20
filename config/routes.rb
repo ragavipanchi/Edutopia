@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'confirmations/show'
+
   resources :colleges
   get 'courses/display_courses', as: "display_courses"
 
@@ -8,7 +10,10 @@ Rails.application.routes.draw do
   resources :course_attachments
   resources :posts
   resources :comments, only: [:create, :destroy]
-  devise_for :users
+  as :user do
+      patch '/user/confirmation' => 'confirmations#update', :via => :patch, :as => :update_user_confirmation
+  end
+  devise_for :users, :controllers => { :confirmations => "confirmations" }
   resources :users do
     member do
       get :friends
@@ -55,6 +60,9 @@ Rails.application.routes.draw do
   match :like, to: 'likes#create', as: :like, via: :post
   match :unlike, to: 'likes#destroy', as: :unlike, via: :post
   match :find_friends, to: 'home#find_friends', as: :find_friends, via: :get
+
+  match :search_colleges, to: 'home#search_colleges', as: :search_colleges, via: :get
+
   get :search_friends, to: 'home#search_friends'
   match :about, to: 'home#about', as: :about, via: :get
 

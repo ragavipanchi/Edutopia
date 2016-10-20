@@ -1,0 +1,11 @@
+<section class="search-college-form">
+  <%= form_tag(search_colleges_path, action: 'search_colleges', method: :get) do |f| %>
+    <div class="input-group input-group-lg">
+      <%= label_tag :keywords, nil, class: 'sr-only' %>
+      <%= text_field_tag :college_search, nil, placeholder: "College Name or College Email", class: "form-control input-lg" %>
+      <span class="input-group-btn">
+        <%= submit_tag "Find Colleges", class: "btn btn-primary btn-lg text-uppercase" %>
+      </span>
+    </div>
+  <% end %>
+</section>

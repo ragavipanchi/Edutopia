@@ -22,10 +22,40 @@ class HomeController < ApplicationController
   def find_friends
   @friends = @user.all_following
   #binding.pry
-  @users = User.with_role(:college).where.not(id: @friends.unshift(@user)).paginate(page: params[:page])
+  @users = User.with_role(:college).where.not(id: @friends.unshift(@user)).paginate(page: params[:page])# || @search.results.paginate(page: params[:page])
   #binding.pry
   #@users =  User.where.not(id: @friends.unshift(@user)).paginate(page: params[:page])
+
   end
+
+  def search_colleges
+
+    @search = User.search do
+      keywords(params[:college_search])
+    end
+    #
+    # puts "++++++++++++++++++++++"
+    arr = []
+    # @search.results.each do |user|
+    #   if user.has_role?(:college)
+    #     arr << user.id
+    #   end
+    # end
+
+
+
+
+    @users = @search.results
+
+    # puts "++++++++++++++++++++++"
+    #   p @users
+    # puts "++++++++++++++++++++++"
+
+    # puts "++++++++++++++++++++++"
+
+    # redirect_to :find_friends
+  end
+
   def search_friends
     @friends = @user.all_following
     @users = User.where("name LIKE ?", "%#{params[:q]}%").where.not(id: @friends.unshift(@user)).paginate(page: params[:page])

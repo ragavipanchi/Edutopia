@@ -66,6 +66,7 @@ group :development do
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
+    gem 'sunspot_solr'
 end
 
 gem 'streamio-ffmpeg'
@@ -89,3 +90,6 @@ gem "rails_admin_import"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'sunspot_rails'
+gem 'progress_bar'
