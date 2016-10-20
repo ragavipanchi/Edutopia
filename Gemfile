@@ -91,5 +91,5 @@ gem "rails_admin_import"
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'sunspot_rails'
-gem 'progress_bar'
+# gem 'sunspot_rails'
+# gem 'progress_bar'

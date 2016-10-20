@@ -41,10 +41,6 @@ class HomeController < ApplicationController
     #     arr << user.id
     #   end
     # end
-
-
-
-
     @users = @search.results
 
     # puts "++++++++++++++++++++++"

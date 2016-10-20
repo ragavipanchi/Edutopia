@@ -65,10 +65,10 @@ class User < ActiveRecord::Base
   end
 
 
-
-  searchable do
-    text :name
-    text :email, :default_boost => 2
-  end
+  #
+  # searchable do
+  #   text :name
+  #   text :email, :default_boost => 2
+  # end
 
 end
