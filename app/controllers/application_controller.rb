@@ -19,5 +19,12 @@ class ApplicationController < ActionController::Base
     #$theme_color = "#154360"
     $theme_color = "#123456"
   end
+  def get_college
+    if current_user.has_role? :college
+      current_user.college
+    elsif current_user.has_role? :student
+      current_user.student.college
+    end
+  end
   include PublicActivity::StoreController
 end

@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :events
   has_one :student
+  has_one :college
 
   mount_uploader :avatar, AvatarUploader
   mount_uploader :cover, AvatarUploader
@@ -69,9 +70,5 @@ class User < ActiveRecord::Base
     text :name
     text :email, :default_boost => 2
   end
-
-
-
-
 
 end

@@ -2,10 +2,10 @@
     <div><h4>POSTS & FEEDS</h4></div>
 </div>
 <div class= "row">
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-calendar-o", name: "News Feeds", path: home_path} %>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-calendar-o", name: "News Feeds", path: home_path(feeds: "public")} %>
     <%= render partial: "/shared/display_icon.html.erb", locals: {icon: "fa-arrow-circle-right", name: "Collages I Follow", path: friends_user_path(current_user)}%>
     <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-search", name: "Search Colleges", path: find_friends_path} %>
-    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-university", name: "My college Feeds ", path: "#"}%>
+    <%= render partial: "/shared/display_icon.html.erb", locals: {icon: " fa-university", name: "My college Feeds ", path: home_path(feeds: "private")}%>
 </div>
 
 <br />

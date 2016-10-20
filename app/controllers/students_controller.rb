@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
     current_user.student.student_courses.create({course_id: params[:course_id],state: "applied"})
     render :text => "Successfully Applied"
   end
-  
+
   # GET /students
   # GET /students.json
   def index
@@ -51,7 +51,7 @@ class StudentsController < ApplicationController
         else
           redirect_to "/welcome/index"
         end
-      
+
     end
   end
 
@@ -68,7 +68,7 @@ class StudentsController < ApplicationController
       end
     end
   end
-  
+
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
@@ -87,6 +87,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :college, :branch, :year, :address, :user_id)
+      params.require(:student).permit(:name, :college, :branch, :year, :address, :user_id, :college_id, :semister, :roll_no)
     end
 end

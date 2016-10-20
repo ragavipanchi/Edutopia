@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'confirmations/show'
 
+  resources :colleges
   get 'courses/display_courses', as: "display_courses"
 
 
