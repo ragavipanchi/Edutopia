@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
   mount_uploader :cover, AvatarUploader
 
   validates_presence_of :name
+  validates :phone_number, presence: true
+  validates :phone_number, :numericality => {:only_integer => true}
+validates_length_of :phone_number, :is => 10
+
 
   self.per_page = 10
 

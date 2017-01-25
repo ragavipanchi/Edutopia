@@ -3,8 +3,8 @@
 class AttachmentUploader < CarrierWave::Uploader::Base
   include CarrierWave::Video
   # Choose what kind of storage to use for this uploader:
-  storage :file 
-  
+  storage :file
+
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -14,6 +14,6 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(pdf mp4)
+    %w(pdf jpeg gif png mp4)
   end
 end
