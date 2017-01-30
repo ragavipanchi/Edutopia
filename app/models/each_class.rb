@@ -1,0 +1,2 @@
+class EachClass < ApplicationRecord
+end
